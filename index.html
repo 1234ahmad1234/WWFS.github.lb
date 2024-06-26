@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secured Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      #login-container {
+        text-align: center;
+      }
+      #secured-content {
+        display: none;
+        text-align: center;
+      }
+      h1 {
+        font-size: 3em;
+        color: #4caf50; /* Green */
+        animation: bounce-in-top 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+      }
+
+      p {
+        font-size: 2em;
+        color: #4caf50; /* Green */
+        animation: bounce-in-bottom 3s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+          both;
+      }
+
+      @keyframes bounce-in-top {
+        0% {
+          transform: translateY(-500px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes bounce-in-bottom {
+        0% {
+          transform: translateY(500px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      input {
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 16px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="login-container">
+      <h2>Enter Password to Access the Page</h2>
+      <input type="password" id="password" placeholder="Enter password" />
+      <button onclick="checkPassword()">Submit</button>
+      <p id="error-message" style="color: red; display: none">
+        Incorrect password. Please try again.
+      </p>
+    </div>
+
+    <div id="secured-content">
+      <div class="login-container">
+        <img
+          src="images/api7wroly__25375.jpg"
+          alt="Sticker or Image"
+          width="200"
+        />
+        <h1>Loser!!!</h1>
+        <p>Try Again</p>
+      </div>
+    </div>
+
+    <script>
+      function checkPassword() {
+        const enteredPassword = document.getElementById('password').value;
+        const correctPassword = '12345'; // Replace with your password
+
+        if (enteredPassword === correctPassword) {
+          document.getElementById('login-container').style.display = 'none';
+          document.getElementById('secured-content').style.display = 'block';
+        } else {
+          document.getElementById('error-message').style.display = 'block';
+        }
+      }
+    </script>
+  </body>
+</html>
